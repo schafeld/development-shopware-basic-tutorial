@@ -134,11 +134,19 @@ Using "Replace String in File"
 # Install/reinstall Shopware
 ./psh.phar install
 
+# Check for running containers
+docker ps
+
 # Stop containers
 ./psh.phar docker:stop
 
 # Access container shell
 docker-compose exec app_server bash
+# or for the tutorial:
+./psh.phar docker:ssh
+
+# Leave container shell
+exit
 ```
 
 Your Shopware development environment is ready for plugin development, theme customization, and storefront modifications! All PHP 7.4 compatibility issues have been documented and resolved for future reference.
