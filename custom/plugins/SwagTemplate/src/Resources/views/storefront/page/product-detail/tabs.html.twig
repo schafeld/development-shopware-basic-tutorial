@@ -4,6 +4,7 @@
 
 {% block page_product_detail_tabs_navigation_description %}
     {{ parent() }}
+    {% if page.product.customFields.custom_training_text %}
     <li class="nav-item">
         <a class="nav-link product-detail-tab-navigation-link"
             id="additional-tab"
@@ -18,15 +19,18 @@
             
         </a>
     </li>
+    {% endif %}
 {% endblock %}
 
 
 {% block page_product_detail_tabs_content_description %}
     {{ parent() }}
+    {% if page.product.customFields.custom_training_text %}
     <div class="tab-pane fade show"
-            id="additional-tab-pane"
-            role="tabpanel"
-            aria-labelledby="additional-tab">
-        This is the content for the additional tab.
+        id="additional-tab-pane"
+        role="tabpanel"
+        aria-labelledby="additional-tab">
+        {% sw_include '@SwagTemplate/storefront/page/product-detail/additional.html.twig' %}
     </div>
+    {% endif %}
 {% endblock %}
