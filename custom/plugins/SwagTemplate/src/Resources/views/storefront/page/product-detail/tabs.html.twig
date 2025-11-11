@@ -1,0 +1,32 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/tabs.html.twig' %}
+
+{# vendor/shopware/platform/src/Storefront/Resources/views/storefront/page/product-detail/tabs.html.twig #}
+
+{% block page_product_detail_tabs_navigation_description %}
+    {{ parent() }}
+    <li class="nav-item">
+        <a class="nav-link product-detail-tab-navigation-link"
+            id="additional-tab"
+            {{ dataBsToggleAttr }}="tab"
+            data-offcanvas-tabs="true"
+            href="#additional-tab-pane"
+            role="tab"
+            aria-controls="additional-tab-pane"
+            aria-selected="false">
+            
+            This is the added tab
+            
+        </a>
+    </li>
+{% endblock %}
+
+
+{% block page_product_detail_tabs_content_description %}
+    {{ parent() }}
+    <div class="tab-pane fade show"
+            id="additional-tab-pane"
+            role="tabpanel"
+            aria-labelledby="additional-tab">
+        This is the content for the additional tab.
+    </div>
+{% endblock %}
