@@ -1,0 +1,48 @@
+{
+  "folders": [
+    {
+      "name": "📁 Root",
+      "path": "."
+    },
+    {
+      "name": "🛍️ Shopware Core",
+      "path": "./shopware"
+    },
+    {
+      "name": "🔧 Custom Plugins",
+      "path": "./custom"
+    }
+  ],
+  "settings": {
+    "search.useGlobalIgnoreFiles": false,
+    "search.useIgnoreFiles": false,
+    "search.followSymlinks": true,
+    "git.detectSubmodules": true,
+    "git.submodules": "inline",
+    "files.associations": {
+      "*.twig": "twig"
+    },
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/vendor": false,
+      "**/.docker-sync": true,
+      "**/var/cache": true,
+      "**/var/log": true,
+      "**/public/bundles": true,
+      "**/public/media": true,
+      "**/public/thumbnail": true,
+      "shopware/.git": true,
+      "shopware/vendor": true,
+      "shopware/var": true
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-vscode.vscode-typescript-next",
+      "whatwedo.twig",
+      "bmewburn.vscode-intelephense-client",
+      "mhutchie.git-graph",
+      "eamodio.gitlens"
+    ]
+  }
+}

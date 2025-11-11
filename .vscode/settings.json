@@ -1,0 +1,40 @@
+{
+  "search.useGlobalIgnoreFiles": false,
+  "search.useIgnoreFiles": false,
+  "search.followSymlinks": true,
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/.git/**": false,
+    "**/vendor/**": true,
+    "**/.docker-sync/**": true,
+    "**/var/cache/**": true,
+    "**/var/log/**": true,
+    "**/public/bundles/**": true,
+    "**/public/media/**": true,
+    "**/public/thumbnail/**": true
+  },
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/.docker-sync": true,
+    "**/var/cache": true,
+    "**/var/log": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/vendor": false,
+    "**/.docker-sync": true,
+    "**/var/cache": true,
+    "**/var/log": true,
+    "**/public/bundles": true,
+    "**/public/media": true,
+    "**/public/thumbnail": true,
+    "shopware/.git": true,
+    "shopware/vendor": true,
+    "shopware/var": true
+  },
+  "git.detectSubmodules": true,
+  "git.submodules": "inline",
+  "files.associations": {
+    "*.twig": "twig"
+  }
+}
