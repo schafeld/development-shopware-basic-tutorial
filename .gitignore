@@ -13,7 +13,9 @@
 /config/packages/local.yaml
 /config/packages/local.yml
 
-/custom/*
+# /custom/*
+!/custom/plugins/
+!/custom/plugins/*
 
 /build/*
 !/build/artifacts/.gitkeep
