@@ -80,6 +80,16 @@ php bin/console cache:clear
 
 Your Shopware development environment is ready for plugin development, theme customization, and storefront modifications! All PHP 7.4 compatibility issues have been documented and resolved for future reference.
 
+### Developer Tips
+
+If the contained submodule in folder `/shopware/platform`are not being searched in VS Code then the submodule may need to be initialized and updated:
+
+```bash
+git submodule update --init --recursive
+```
+
+You'll want to have that sub-module searchable in order to find the Twig-templates that you need to override for frontend customization.
+
 ## Branches
 
 The original fork branch was `trunk`.
