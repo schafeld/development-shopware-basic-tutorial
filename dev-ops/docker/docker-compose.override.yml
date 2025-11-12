@@ -19,6 +19,7 @@ services:
       CONTAINER_UID: __USER_ID__
       APPLICATION_UID: __USER_ID__
       APPLICATION_GID: __GROUP_ID__
+      NODE_OPTIONS: '--openssl-legacy-provider'
     ports:
       - "127.0.0.1:8000:8000"
       - "127.0.0.1:__DEVPORT__:__DEVPORT__"

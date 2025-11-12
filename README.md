@@ -72,14 +72,36 @@ exit
 ./psh.phar storefront:dev 
 # use this command instead to use a fix for Node version incompatibility:
 docker-compose exec app_server bash -c "cd /app && NODE_OPTIONS='--openssl-legacy-provider' ./psh.phar storefront:dev"
+# The legacy provider issue is fixed via Docker override, Node options shoulkd no longer neneeded.
 
 # Maybe refresh cache in Docker container
 ./psh.phar docker:ssh 
 php bin/console cache:clear
+
+# Hot Reloading for SCSS / CSS
+# run this in Docker container: 
+./psh.phar storefront:hot-proxy
+# Don't forget to check proxy for updates: http://localhost:9998/
+# Maybe refresh cache if e.g. branch was changed
+bin/console cache:clear
 ```
 
 Your Shopware development environment is ready for plugin development, theme customization, and storefront modifications! All PHP 7.4 compatibility issues have been documented and resolved for future reference.
 
-P.S: The original fork branch was 'trunk'.
+### Developer Tips
+
+If the contained submodule in folder `/shopware/platform`are not being searched in VS Code then the submodule may need to be initialized and updated:
+
+```bash
+git submodule update --init --recursive
+```
+
+You'll want to have that sub-module searchable in order to find the Twig-templates that you need to override for frontend customization.
+
+## Branches
+
+The original fork branch was `trunk`.
 
 Branch `tutorial-template-basic-training` is for [Shopware Online Academy Course "Shopware 6 - Template Training Basic (EN)"](https://academy.shopware.com/courses/take/shopware-6-template-training-english)
+
+Branch `tutorial-clean-boilerplate` is the starter branch for new development. It contains only the changes necessary to get the original fork running plus documentation.

@@ -1,0 +1,1 @@
+console.info('SwagTemplate main.js loaded');
