@@ -1,4 +1,4 @@
-FROM mysql:8
+FROM mysql:8.0
 
 # custom dirs for mysql shared docker environments
 RUN mkdir -p /mysql-tmp && mkdir -p /mysql-data

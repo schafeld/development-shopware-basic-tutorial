@@ -1,0 +1,10 @@
+{% sw_extends '@Storefront/storefront/utilities/offcanvas.html.twig' %}
+
+{# vendor/shopware/platform/src/Storefront/Resources/views/storefront/utilities/offcanvas.html.twig #}
+
+{# This block implements the close-fly-in icon for the mobile view #}
+{% block utilities_offcanvas_content %}
+    <h3>Additional Information</h3>
+    {# {{ dump() }} #}
+    {{ page.product.customFields.custom_training_text | raw }}
+{% endblock %}
