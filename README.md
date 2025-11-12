@@ -44,7 +44,18 @@ The quickstart guide using this development template is located at [shopware/pla
 - **Username:** admin
 - **Password:** shopware (default from installation)
 
-### 🛠️ Development Commands
+### � Initial Setup
+
+After cloning this repository, you **must** initialize the Shopware submodule:
+
+```bash
+# Initialize and download the Shopware core files
+git submodule update --init --recursive
+```
+
+This command downloads the Shopware core platform from the official repository into the `/shopware` directory. Without this step, the development environment will not work.
+
+### �🛠️ Development Commands
 
 ```bash
 # Start the development environment
