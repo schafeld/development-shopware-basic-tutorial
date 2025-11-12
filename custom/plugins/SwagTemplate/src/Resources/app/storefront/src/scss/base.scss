@@ -1,0 +1,24 @@
+.training-card {
+    border: 1px solid $sw-border-color;
+    border-radius: 4px;
+    padding: 16px;
+    margin-bottom: 16px;
+
+    .img-container {
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.625rem 0;
+
+        img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: scale-down;
+        }
+    }
+
+    .card-body {
+        background-color:  $sw-background-color;
+    }
+}
