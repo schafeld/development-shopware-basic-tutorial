@@ -72,10 +72,18 @@ exit
 ./psh.phar storefront:dev 
 # use this command instead to use a fix for Node version incompatibility:
 docker-compose exec app_server bash -c "cd /app && NODE_OPTIONS='--openssl-legacy-provider' ./psh.phar storefront:dev"
+# The legacy provider issue is fixed via Docker override, Node options shoulkd no longer neneeded.
 
 # Maybe refresh cache in Docker container
 ./psh.phar docker:ssh 
 php bin/console cache:clear
+
+# Hot Reloading for SCSS / CSS
+# run this in Docker container: 
+./psh.phar storefront:hot-proxy
+# Don't forget to check proxy for updates: http://localhost:9998/
+# Maybe refresh cache if e.g. branch was changed
+bin/console cache:clear
 ```
 
 Your Shopware development environment is ready for plugin development, theme customization, and storefront modifications! All PHP 7.4 compatibility issues have been documented and resolved for future reference.
