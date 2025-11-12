@@ -1,0 +1,5 @@
+[submodule "shopware"][submodule "shopware"]
+
+	path = shopware
+
+	url = https://github.com/shopware/shopware.git
