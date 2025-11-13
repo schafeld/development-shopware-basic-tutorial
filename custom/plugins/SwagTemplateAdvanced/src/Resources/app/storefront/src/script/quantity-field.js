@@ -7,42 +7,60 @@ export default class QuantityFieldPlugin extends Plugin {
         this.plusButton = DomAccess.querySelector(this.el, '.increase');
         this.inputField = DomAccess.querySelector(this.el, 'input[type="number"]');
 
+        // Get min, max, and step from input attributes
+        this.minPurchase = parseInt(this.inputField.getAttribute('min'), 10) || 1;
+        this.maxPurchase = parseInt(this.inputField.getAttribute('max'), 10) || null;
+        this.purchaseSteps = parseInt(this.inputField.getAttribute('step'), 10) || 1;
+
         this._registerEvents();
     }
 
     _registerEvents() {
         if (this.minusButton) {
             this.minusButton.addEventListener('click', () => {
-                // console.log('Minus button clicked');
                 this._decreaseQuantity();
             });
         }
 
         if (this.plusButton) {
             this.plusButton.addEventListener('click', () => {
-                // console.log('Plus button clicked');
                 this._increaseQuantity();
             });
         }
 
         if (this.inputField) {
             this.inputField.addEventListener('input', () => {
-                // console.log('Input field changed');
+                this._validateQuantity();
             });
         }
     }
 
     _decreaseQuantity() {
-        console.log('Decreasing quantity');
-        let currentValue = parseInt(this.inputField.value, 10) || 0;
-        if (currentValue > 1) {
-            this.inputField.value = currentValue - 1;
+        let currentValue = parseInt(this.inputField.value, 10) || this.minPurchase;
+        let newValue = currentValue - this.purchaseSteps;
+        
+        if (newValue >= this.minPurchase) {
+            this.inputField.value = newValue;
         }
     }
 
     _increaseQuantity() {
-        console.log('Increasing quantity');
-        let currentValue = parseInt(this.inputField.value, 10) || 0;
-        this.inputField.value = currentValue + 1;
+        let currentValue = parseInt(this.inputField.value, 10) || this.minPurchase;
+        let newValue = currentValue + this.purchaseSteps;
+        
+        if (this.maxPurchase === null || newValue <= this.maxPurchase) {
+            this.inputField.value = newValue;
+        }
+    }
+
+    _validateQuantity() {
+        let currentValue = parseInt(this.inputField.value, 10);
+        
+        // Ensure value is within bounds
+        if (currentValue < this.minPurchase) {
+            this.inputField.value = this.minPurchase;
+        } else if (this.maxPurchase !== null && currentValue > this.maxPurchase) {
+            this.inputField.value = this.maxPurchase;
+        }
     }
 }
