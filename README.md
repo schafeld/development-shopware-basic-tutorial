@@ -18,7 +18,7 @@ The quickstart guide using this development template is located at [shopware/pla
 ### ✅ What Was Accomplished
 
 1. **Fixed Docker Container Issues**
-   - Updated deprecated Debian Buster repositories 
+   - Updated deprecated Debian Buster repositories
    - Resolved MySQL authentication compatibility (8.0 with native password)
    - Built functioning multi-container environment
 
@@ -35,10 +35,10 @@ The quickstart guide using this development template is located at [shopware/pla
 
 ### 🌐 Access To Shopware Store
 
-- **Storefront:** http://localhost:8000 
-- **Admin Panel:** http://localhost:8000/admin
-- **Database (Adminer):** http://localhost:8001
-- **Mail Catcher:** http://localhost:8002
+- **Storefront:** <http://localhost:8000>
+- **Admin Panel:** <http://localhost:8000/admin>
+- **Database (Adminer):** <http://localhost:8001>
+- **Mail Catcher:** <http://localhost:8002>
 
 > **⚠️ Important:** Use `localhost` instead of `127.0.0.1` in your browser. The Shopware sales channel is configured for `localhost:8000` domain.
 
