@@ -1,7 +1,7 @@
 import Plugin from 'src/plugin-system/plugin.class';
 import DomAccess from 'src/helper/dom-access.helper';
 
-export default class QuantityFieldPlugin extends Plugin {
+export default class QuantityField extends Plugin {
     init() {
         this.minusButton = DomAccess.querySelector(this.el, '.decrease');
         this.plusButton = DomAccess.querySelector(this.el, '.increase');
@@ -37,7 +37,8 @@ export default class QuantityFieldPlugin extends Plugin {
 
     _decreaseQuantity() {
         let currentValue = parseInt(this.inputField.value, 10) || this.minPurchase;
-        let newValue = currentValue - this.purchaseSteps;
+        // let newValue = currentValue - this.purchaseSteps;
+        let newValue = currentValue - parseInt(this.options.purchaseSteps, 10);
         
         if (newValue >= this.minPurchase) {
             this.inputField.value = newValue;
@@ -46,7 +47,9 @@ export default class QuantityFieldPlugin extends Plugin {
 
     _increaseQuantity() {
         let currentValue = parseInt(this.inputField.value, 10) || this.minPurchase;
-        let newValue = currentValue + this.purchaseSteps;
+        // let newValue = currentValue + this.purchaseSteps;
+        let newValue = currentValue + parseInt(this.options.purchaseSteps, 10);
+        // console.info('this.options.purchaseSteps', this.options.purchaseSteps);
         
         if (this.maxPurchase === null || newValue <= this.maxPurchase) {
             this.inputField.value = newValue;

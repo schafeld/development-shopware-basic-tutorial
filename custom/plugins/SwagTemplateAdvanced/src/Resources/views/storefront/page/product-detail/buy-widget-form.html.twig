@@ -2,7 +2,12 @@
 
 {% block page_product_detail_buy_quantity %}
 
-    <div class="product-detail-quantity-input input-group input-group-lg" data-quantity-field="true">
+    <div class="product-detail-quantity-input input-group input-group-lg" 
+        data-quantity-field="true"
+        data-quantity-field-options='{{ {
+            "purchaseSteps": page.product.purchaseSteps,
+            "maxQuantity": page.product.calculatedMaxPurchase
+        }|json_encode }}'>
         <div class="input-group-prepend">
             <button class="btn btn-outline-secondary decrease" type="button" id="button-minus">-</button>
         </div>
@@ -10,10 +15,11 @@
         <input type="number" class="form-control form-control-lg" 
             id="quantity" 
             title="Quantity for {{ page.product.translated.name }}"
-            name="lineItems[{{ product.id }}][quantity]" 
+            name="lineItems[{{ page.product.id }}][quantity]" 
             value="{{ page.product.minPurchase }}" 
-            min="1" 
-            step="1"
+            min="{{ page.product.minPurchase }}"
+            max="{{ page.product.calculatedMaxPurchase }}"
+            step="{{ page.product.purchaseSteps }}"
             aria-label="{{ 'general.quantityLabel'|trans|striptags }}" 
             >
 
@@ -21,4 +27,9 @@
             <button class="btn btn-outline-secondary increase" type="button" id="button-plus">+</button>
         </div>
     </div>
+    {# <pre>
+purchaseSteps: {{ page.product.purchaseSteps }}
+maxQuantity: {{ page.product.calculatedMaxPurchase }}
+minPurchase: {{ page.product.minPurchase }}
+    </pre> #}
 {% endblock %}
