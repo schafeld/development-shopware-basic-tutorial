@@ -13,7 +13,8 @@
 /config/packages/local.yaml
 /config/packages/local.yml
 
-/custom/*
+# Do NOT ignore custom directory, that's where custom themes and plugins go
+# /custom/*
 
 /build/*
 !/build/artifacts/.gitkeep
