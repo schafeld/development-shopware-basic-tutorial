@@ -11,8 +11,9 @@ export default class RumbleButton extends AddToCart {
         // keep the original AddToCart init functionality
         super.init();
 
-        this.el.addEventListener('click', () => {
-            const productNameInput = this.el.parentElement.querySelector('input[name="product-name"]');
+        const submitButton = DomAccess.querySelector(this.el, '.btn-buy');
+        submitButton.addEventListener('click', () => {
+            const productNameInput = this.el.querySelector('input[name="product-name"]');
             const productName = productNameInput ? productNameInput.value.trim() : 'Unknown Product';
             console.info(`Rumble Button for "${productName}" clicked! Let's add some rumble to the shopping experience!`);
         });
