@@ -119,6 +119,22 @@ exit
 
 Your Shopware development environment is ready for plugin development, theme customization, and storefront modifications! All PHP 7.4 compatibility issues have been documented and resolved for future reference.
 
+## 📚 AI/Agent Documentation
+
+For AI assistants and developers using agentic coding tools:
+
+- **[Agentic Coding Guidelines](./AI_DOCUMENTS/agentic-coding-guidelines.md)** - Best practices for AI-assisted development on this project
+  - Docker command patterns (IMPORTANT: all console commands must run in containers)
+  - Development workflows
+  - Linting requirements
+  - Quick reference commands
+
+Technical fix documentation:
+
+- [Dockerfile Fixes](./AI_DOCUMENTS/dockerfile-fixes-november-2025.md)
+- [MySQL Fixes](./AI_DOCUMENTS/mysql-fixes-november-2025.md)
+- [PHP 7.4 Compatibility Fixes](./AI_DOCUMENTS/php74-compatibility-fixes-november-2025.md)
+
 P.S: The original fork branch was 'trunk'.
 
 ⚠️ Keep the branch `tutorial-clean-boilerplate` unchanged as a starting point for future tutorial branches.
