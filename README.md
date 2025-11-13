@@ -40,11 +40,49 @@ The quickstart guide using this development template is located at [shopware/pla
 - **Database (Adminer):** http://localhost:8001
 - **Mail Catcher:** http://localhost:8002
 
+> **⚠️ Important:** Use `localhost` instead of `127.0.0.1` in your browser. The Shopware sales channel is configured for `localhost:8000` domain.
+
 ### 📋 Login Credentials
+
 - **Username:** admin
 - **Password:** shopware (default from installation)
 
-### � Initial Setup
+## 🚀 Quick Installation Guide
+
+Get Shopware 6 running locally in under 5 minutes:
+
+```bash
+# 1. Clone this repository
+git clone https://github.com/schafeld/development-shopware-basic-tutorial.git
+cd development-shopware-basic-tutorial
+
+# 2. Initialize Shopware core files (required!)
+git submodule update --init --recursive
+
+# 3. Start Docker containers
+docker compose up -d
+
+# 4. Install Shopware (this may take a few minutes)
+./psh.phar install
+
+# 5. Open your browser
+open http://localhost:8000
+```
+
+**That's it!** Your Shopware development environment is ready.
+
+**Default login credentials:**
+
+- **Admin Panel:** <http://localhost:8000/admin>
+  - Username: `admin`
+  - Password: `shopware`
+- **Database (Adminer):** <http://localhost:8001>
+  - Server: `app_mysql`
+  - Username: `app`
+  - Password: `app`
+  - Database: `shopware`
+
+### 🔧 Initial Setup (Detailed)
 
 After cloning this repository, you **must** initialize the Shopware submodule:
 
