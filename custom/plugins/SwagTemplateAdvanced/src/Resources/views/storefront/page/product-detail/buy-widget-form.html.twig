@@ -1,0 +1,24 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/buy-widget-form.html.twig' %}
+
+{% block page_product_detail_buy_quantity %}
+
+    <div class="product-detail-quantity-input input-group input-group-lg" data-quantity-field="true">
+        <div class="input-group-prepend">
+            <button class="btn btn-outline-secondary decrease" type="button" id="button-minus">-</button>
+        </div>
+
+        <input type="number" class="form-control form-control-lg" 
+            id="quantity" 
+            title="Quantity for {{ page.product.translated.name }}"
+            name="lineItems[{{ product.id }}][quantity]" 
+            value="{{ page.product.minPurchase }}" 
+            min="1" 
+            step="1"
+            aria-label="{{ 'general.quantityLabel'|trans|striptags }}" 
+            >
+
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary increase" type="button" id="button-plus">+</button>
+        </div>
+    </div>
+{% endblock %}
