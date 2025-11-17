@@ -1,0 +1,14 @@
+.js-header-main-sticky {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(-100%); /* Initially "flipped out of" the viewport */
+
+    &.is--active {
+        transform: translateY(0); /* Slide down into view */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+}

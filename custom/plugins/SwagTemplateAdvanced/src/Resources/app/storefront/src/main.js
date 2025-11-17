@@ -1,5 +1,6 @@
 import RumbleButton from './script/rumble-button';
 import QuantityField from './script/quantity-field';
+import StickyHeader from './script/sticky-header';
 
 // The button only holds the RumbleButton function, we need an element higher up in the DOM that holds more plugins
 // window.PluginManager.register('RumbleButton', RumbleButton, '.btn-buy');
@@ -13,3 +14,4 @@ window.PluginManager.register('QuantityField', QuantityField, '[data-quantity-fi
 
 console.info('SwagTemplateAdvanced plugin loaded...');
 
+window.PluginManager.register('StickyHeader', StickyHeader, '[data-sticky-header="true"]');

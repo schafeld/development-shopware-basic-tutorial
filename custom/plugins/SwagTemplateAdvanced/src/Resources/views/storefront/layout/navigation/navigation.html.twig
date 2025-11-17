@@ -1,0 +1,13 @@
+{% extends '@Storefront/storefront/layout/navigation/navigation.html.twig' %}
+
+{# copied from vendor/shopware/platform/src/Storefront/Resources/views/storefront/layout/navigation/navigation.html.twig #}
+
+{% block layout_main_navigation %}
+    <div class="js-navigation-wrapper"
+        data-sticky-header="true"
+        data-sticky-header-options='{
+            "showOnScrollPosition": "200"
+            }'>
+        {{ parent() }}
+    </div>
+{% endblock %}
