@@ -3,11 +3,12 @@
 {# copied from vendor/shopware/platform/src/Storefront/Resources/views/storefront/layout/navigation/navigation.html.twig #}
 
 {% block layout_main_navigation %}
+    {# optional scrollTriggerPosition value also overrides the default value set in sticky-header.js #}
     <div class="js-navigation-wrapper"
         data-sticky-header="true"
         data-sticky-header-options='{
-            "showOnScrollPosition": "200"
-            }'>
+            "scrollTriggerPosition": {{ theme_config('scrollTriggerPosition') }}
+        }'>
         {{ parent() }}
     </div>
 {% endblock %}

@@ -18,5 +18,27 @@
   "asset": [
     "@Storefront",
     "app/storefront/src/assets"
-  ]
+  ],
+  "config": {
+    "blocks": {
+      "jsPlugins": {
+        "label": {
+          "en-GB": "JS Plugins",
+          "de-DE": "JS Plugins"
+        }
+      }
+    },
+    "fields": {
+      "scrollTriggerPosition": {
+        "label": {
+          "en-GB": "Sticky Header Scroll Trigger Position",
+          "de-DE": "Sticky Header Scroll Auslöser Position"
+        },
+        "type": "int",
+        "value": 500,
+        "editable": true,
+        "block": "jsPlugins"
+      }
+    }
+  }
 }
