@@ -14,4 +14,6 @@ window.PluginManager.register('QuantityField', QuantityField, '[data-quantity-fi
 
 console.info('SwagTemplateAdvanced plugin loaded...');
 
-window.PluginManager.register('StickyHeader', StickyHeader, '[data-sticky-header="true"]');
+window.PluginManager.register('StickyHeader', StickyHeader, '[data-sticky-header="true"]', {
+    scrollTriggerPosition: 400, // pixels scrolled down before sticky header appears, overides options in sticky-header.js
+});
