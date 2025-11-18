@@ -167,7 +167,9 @@ You'll want to have that sub-module searchable in order to find the Twig-templat
 
 The original fork branch was `trunk`.
 
-Branch `tutorial-template-basic-training` is for [Shopware Online Academy Course "Shopware 6 - Template Training Basic (EN)"](https://academy.shopware.com/courses/take/shopware-6-template-training-english)
+Branch `tutorial-template-basic-training` is for [Shopware Online Academy Course "Shopware 6 - Template Training Basic (EN)"](https://academy.shopware.com/courses/take/shopware-6-template-training-english).
+
+Branch `tutorial-template-advanced-training` is for [Shopware Online Academy Course "Shopware 6 - Template Training Advanced (EN)"](Branch `tutorial-template-basic-training` is for [Shopware Online Academy Course "Shopware 6 - Template Training Basic (EN)"](https://academy.shopware.com/courses/shopware-6-developer-training-advanced-en).
 
 Branch `tutorial-clean-boilerplate` is the starter branch for new development. It contains only the changes necessary to get the original fork running plus documentation.
 
