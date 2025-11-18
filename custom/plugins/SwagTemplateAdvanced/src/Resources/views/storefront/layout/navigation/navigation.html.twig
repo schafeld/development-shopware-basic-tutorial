@@ -1,0 +1,19 @@
+{% extends '@Storefront/storefront/layout/navigation/navigation.html.twig' %}
+
+{# copied from vendor/shopware/platform/src/Storefront/Resources/views/storefront/layout/navigation/navigation.html.twig #}
+
+{% block layout_main_navigation %}
+    {# we need to use theme_config, differs from turorial #}
+    {% if theme_config('activateStickyHeader') %}
+        {# optional scrollTriggerPosition value also overrides the default value set in sticky-header.js #}
+        <div class="js-navigation-wrapper"
+            data-sticky-header="true"
+            data-sticky-header-options='{
+                "scrollTriggerPosition": {{ theme_config('scrollTriggerPosition') }}
+            }'>
+            {{ parent() }}
+        </div>
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}

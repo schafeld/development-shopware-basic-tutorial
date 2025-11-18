@@ -13,6 +13,7 @@
 /config/packages/local.yaml
 /config/packages/local.yml
 
+# # Do NOT ignore custom directory, that's where custom themes and plugins go
 # /custom/*
 !/custom/plugins/
 !/custom/plugins/*
