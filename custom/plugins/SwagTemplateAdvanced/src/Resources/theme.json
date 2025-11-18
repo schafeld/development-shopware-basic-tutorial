@@ -29,6 +29,19 @@
       }
     },
     "fields": {
+      "activateStickyHeader": {
+        "label": {
+          "en-GB": "Activate Sticky Header",
+          "de-DE": "Sticky Header aktivieren"
+        },
+        "type": "switch",
+        "custom": {
+          "bordered": true
+        },
+        "value": false,
+        "editable": true,
+        "block": "jsPlugins"
+      },
       "scrollTriggerPosition": {
         "label": {
           "en-GB": "Sticky Header Scroll Trigger Position",
