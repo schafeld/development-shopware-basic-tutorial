@@ -1,4 +1,6 @@
 import Plugin from 'src/plugin-system/plugin.class';
+import DomAccess from 'src/helper/dom-access.helper';
+import ViewportDetection from 'src/helper/viewport-detection.helper';
 
 export default class StickyHeader extends Plugin {
 
@@ -15,9 +17,59 @@ export default class StickyHeader extends Plugin {
         // // 'FlyoutMenu' leads to vendor/shopware/platform/src/Storefront/Resources/app/storefront/src/plugin/main-menu/flyout-menu.plugin.js
         // console.info(this.PluginManager.getPluginInstancesFromElement(mainNav));
 
+        this.subscribeViewportEvents();
+
+        if (this.pluginShouldBeActive()) {
+            this.initializePlugin();
+        }
+    }
+
+    subscribeViewportEvents() {
+        // detect mobile screens; we do not want to load the code to make the desktop sticky header
+        document.$emitter.subscribe('Viewport/hasChanged', this.update, {scope: this});
+    }
+
+    update() {
+        console.info('Viewport/hasChanged detected');
+
+        if (this.pluginShouldBeActive()) {
+            if (this.initialized) {
+                return;
+            }
+            this.initializePlugin();
+        } else {
+            if (!this.initialized) {
+                return;
+            }
+            this.destroy();
+        }
+    }
+
+    initializePlugin() {
         this.createElement();
         this.addEventListeners();
         this.reinitializePlugin();
+
+        console.info('StickyHeader initialized');
+
+        this.initialized = true;
+    }
+
+    destroy() {
+        // remove cloned element
+        this._navClone.remove();
+        this.removeEventListeners();
+
+        console.info('StickyHeader destroyed');
+
+        this.initialized = false;
+    }
+
+    pluginShouldBeActive() {
+        if(['XS', 'SM', 'MD'].includes(ViewportDetection.getCurrentViewport())) {
+            return false;
+        }
+        return true;
     }
 
     createElement() {
@@ -25,14 +77,17 @@ export default class StickyHeader extends Plugin {
         // so this.el is the main navigation element
         this._navClone = this.el.cloneNode(true); // deep clone
         this._navClone.classList.add(this.options.cloneElClass);
-        this._navClone.removeAttribute('id'); // remove id to avoid duplicates
+        DomAccess.querySelector(this._navClone, '#mainNavigation', false).removeAttribute('id');
 
         document.body.appendChild(this._navClone);
     }
 
     addEventListeners() {
-        document.removeEventListener('scroll', this.onScroll.bind(this));
         document.addEventListener('scroll', this.onScroll.bind(this));
+    }
+
+    removeEventListeners() {
+        document.removeEventListener('scroll', this.onScroll.bind(this));
     }
 
     onScroll() {
