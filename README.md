@@ -18,7 +18,7 @@ The quickstart guide using this development template is located at [shopware/pla
 ### ✅ What Was Accomplished
 
 1. **Fixed Docker Container Issues**
-   - Updated deprecated Debian Buster repositories 
+   - Updated deprecated Debian Buster repositories
    - Resolved MySQL authentication compatibility (8.0 with native password)
    - Built functioning multi-container environment
 
@@ -35,16 +35,65 @@ The quickstart guide using this development template is located at [shopware/pla
 
 ### 🌐 Access To Shopware Store
 
-- **Storefront:** http://localhost:8000 
-- **Admin Panel:** http://localhost:8000/admin
-- **Database (Adminer):** http://localhost:8001
-- **Mail Catcher:** http://localhost:8002
+- **Storefront:** <http://localhost:8000>
+- **Admin Panel:** <http://localhost:8000/admin>
+- **Database (Adminer):** <http://localhost:8001>
+- **Mail Catcher:** <http://localhost:8002>
+
+> **⚠️ Important:** Use `localhost` instead of `127.0.0.1` in your browser. The Shopware sales channel is configured for `localhost:8000` domain.
 
 ### 📋 Login Credentials
+
 - **Username:** admin
 - **Password:** shopware (default from installation)
 
-### 🛠️ Development Commands
+## 🚀 Quick Installation Guide
+
+Get Shopware 6 running locally in under 5 minutes:
+
+```bash
+# 1. Clone this repository
+git clone https://github.com/schafeld/development-shopware-basic-tutorial.git
+cd development-shopware-basic-tutorial
+
+# 2. Initialize Shopware core files (required!)
+git submodule update --init --recursive
+
+# 3. Start Docker containers
+docker compose up -d
+
+# 4. Install Shopware (this may take a few minutes)
+./psh.phar install
+
+# 5. Open your browser
+open http://localhost:8000
+```
+
+**That's it!** Your Shopware development environment is ready.
+
+**Default login credentials:**
+
+- **Admin Panel:** <http://localhost:8000/admin>
+  - Username: `admin`
+  - Password: `shopware`
+- **Database (Adminer):** <http://localhost:8001>
+  - Server: `app_mysql`
+  - Username: `app`
+  - Password: `app`
+  - Database: `shopware`
+
+### 🔧 Initial Setup (Detailed)
+
+After cloning this repository, you **must** initialize the Shopware submodule:
+
+```bash
+# Initialize and download the Shopware core files
+git submodule update --init --recursive
+```
+
+This command downloads the Shopware core platform from the official repository into the `/shopware` directory. Without this step, the development environment will not work.
+
+### �🛠️ Development Commands
 
 ```bash
 # Start the development environment
@@ -88,6 +137,22 @@ bin/console cache:clear
 
 Your Shopware development environment is ready for plugin development, theme customization, and storefront modifications! All PHP 7.4 compatibility issues have been documented and resolved for future reference.
 
+## 📚 AI/Agent Documentation
+
+For AI assistants and developers using agentic coding tools:
+
+- **[Agentic Coding Guidelines](./AI_DOCUMENTS/agentic-coding-guidelines.md)** - Best practices for AI-assisted development on this project
+  - Docker command patterns (IMPORTANT: all console commands must run in containers)
+  - Development workflows
+  - Linting requirements
+  - Quick reference commands
+
+Technical fix documentation:
+
+- [Dockerfile Fixes](./AI_DOCUMENTS/dockerfile-fixes-november-2025.md)
+- [MySQL Fixes](./AI_DOCUMENTS/mysql-fixes-november-2025.md)
+- [PHP 7.4 Compatibility Fixes](./AI_DOCUMENTS/php74-compatibility-fixes-november-2025.md)
+
 ### Developer Tips
 
 If the contained submodule in folder `/shopware/platform`are not being searched in VS Code then the submodule may need to be initialized and updated:
@@ -105,3 +170,5 @@ The original fork branch was `trunk`.
 Branch `tutorial-template-basic-training` is for [Shopware Online Academy Course "Shopware 6 - Template Training Basic (EN)"](https://academy.shopware.com/courses/take/shopware-6-template-training-english)
 
 Branch `tutorial-clean-boilerplate` is the starter branch for new development. It contains only the changes necessary to get the original fork running plus documentation.
+
+⚠️ Keep the branch `tutorial-clean-boilerplate` unchanged as a starting point for future tutorial branches.

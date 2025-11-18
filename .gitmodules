@@ -1,3 +1,10 @@
+<<<<<<< HEAD
 [submodule "shopware"]
 	path = shopware
+=======
+[submodule "shopware"][submodule "shopware"]
+
+	path = shopware
+
+>>>>>>> tutorial-template-advanced-training
 	url = https://github.com/shopware/shopware.git

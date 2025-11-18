@@ -1,0 +1,18 @@
+{
+  "name": "swag/theme-skeleton",
+  "description": "Theme skeleton plugin",
+  "type": "shopware-platform-plugin",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "SwagTemplateAdvanced\\": "src/"
+    }
+  },
+  "extra": {
+    "shopware-plugin-class": "SwagTemplateAdvanced\\SwagTemplateAdvanced",
+    "label": {
+      "de-DE": "Theme SwagTemplateAdvanced plugin",
+      "en-GB": "Theme SwagTemplateAdvanced plugin"
+    }
+  }
+}
